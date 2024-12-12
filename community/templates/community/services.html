@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+
+{% block title %}Services page - Church{% endblock %}
+
+{% block content %} 
+
+<div>
+  <!-- Page Header -->
+<div class="relative">
+    <img 
+      src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+      alt="Worship and Fellowship" 
+      class="w-full h-96 object-cover" 
+    />
+    <div class="absolute top-0 left-0 right-0 bottom-0 bg-black opacity-50"></div>
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white">
+      <h1 class="text-4xl font-bold">Our Services</h1>
+      <p class="text-xl mt-4">Join Us in Worship and Fellowship</p>
+    </div>
+  </div>
+  
+  
+    <!-- Service Times -->
+    <section class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Weekly Services</h2>
+          <p class="text-xl text-gray-600">Join us for worship, prayer, and God's Word</p>
+        </div>
+  
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Sunday Morning Service -->
+          <div class="bg-gray-50 rounded-lg p-8">
+            <div class="text-indigo-600 mb-4">
+              <svg class="h-12 w-12 mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14v-4h2v4h-2zm0-6V7h2v3h-2z"/></svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Sunday Morning</h3>
+            <p class="text-gray-600 mb-4">9:00 AM & 11:00 AM</p>
+            <ul class="text-gray-600 space-y-2">
+              <li>• Contemporary Worship</li>
+              <li>• Children's Ministry</li>
+              <li>• Coffee & Fellowship</li>
+            </ul>
+          </div>
+  
+          <!-- Wednesday Night Service -->
+          <div class="bg-gray-50 rounded-lg p-8">
+            <div class="text-indigo-600 mb-4">
+              <svg class="h-12 w-12 mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M3 4v16c0 .55.45 1 1 1h16c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1zm10 2h4v10h-4V6zm-6 0h4v10H7V6z"/></svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Wednesday Night</h3>
+            <p class="text-gray-600 mb-4">7:00 PM</p>
+            <ul class="text-gray-600 space-y-2">
+              <li>• Bible Study</li>
+              <li>• Prayer Meeting</li>
+              <li>• Small Groups</li>
+            </ul>
+          </div>
+  
+          <!-- Youth Service -->
+          <div class="bg-gray-50 rounded-lg p-8">
+            <div class="text-indigo-600 mb-4">
+              <svg class="h-12 w-12 mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14v-4h2v4h-2zm0-6V7h2v3h-2z"/></svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Youth Service</h3>
+            <p class="text-gray-600 mb-4">Friday 6:30 PM</p>
+            <ul class="text-gray-600 space-y-2">
+              <li>• Youth Worship</li>
+              <li>• Bible Teaching</li>
+              <li>• Activities & Games</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- What to Expect -->
+    <section class="py-16 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">What to Expect</h2>
+          <p class="text-xl text-gray-600">Your first visit to Grace Community</p>
+        </div>
+  
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div>
+            <img 
+              src="https://images.unsplash.com/photo-1511619203855-edfbf9d35897?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+              alt="Worship Service" 
+              class="rounded-lg shadow-lg mb-8"
+            />
+            <h3 class="text-2xl font-semibold mb-4">Worship Experience</h3>
+            <p class="text-gray-600">
+              Our services blend contemporary and traditional elements, creating an authentic worship experience. 
+              You'll find uplifting music, relevant teaching, and a welcoming community ready to embrace you.
+            </p>
+          </div>
+  
+          <div class="space-y-8">
+            <div>
+              <svg class="h-8 w-8 text-indigo-600 mb-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14v-4h2v4h-2zm0-6V7h2v3h-2z"/></svg>
+              <h4 class="text-xl font-semibold mb-2">Worship Style</h4>
+              <p class="text-gray-600">
+                Contemporary worship music led by our talented worship team, 
+                incorporating both modern songs and traditional hymns.
+              </p>
+            </div>
+  
+            <div>
+              <svg class="h-8 w-8 text-indigo-600 mb-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M3 4v16c0 .55.45 1 1 1h16c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1zm10 2h4v10h-4V6zm-6 0h4v10H7V6z"/></svg>
+              <h4 class="text-xl font-semibold mb-2">Service Length</h4>
+              <p class="text-gray-600">
+                Services typically last 75 minutes, including worship, 
+                announcements, and the message.
+              </p>
+            </div>
+  
+            <div>
+              <svg class="h-8 w-8 text-indigo-600 mb-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14v-4h2v4h-2zm0-6V7h2v3h-2z"/></svg>
+              <h4 class="text-xl font-semibold mb-2">Community</h4>
+              <p class="text-gray-600">
+                Connect with others during our fellowship time after each service. 
+                Coffee and refreshments are provided.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+
+{% endblock %}

@@ -1,0 +1,249 @@
+{% extends 'base.html' %}
+
+{% block title %}Give page - Church{% endblock %}
+
+{% block content %} 
+
+   <!-- Page Header -->
+   <div class="relative h-96">
+    <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80"
+      alt="Background" class="absolute inset-0 w-full h-full object-cover" />
+    <div class="relative z-10 bg-black bg-opacity-50 h-full flex flex-col items-center justify-center">
+      <h1 class="text-white text-4xl font-bold mb-2">Give</h1>
+      <p class="text-white text-lg">Supporting Our Mission and Ministry</p>
+    </div>
+  </div>
+
+  <!-- Ways to Give -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold mb-4">Ways to Give</h2>
+        <p class="text-xl text-gray-600">Choose the giving method that works best for you</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Online Giving -->
+        <div class="bg-gray-50 rounded-lg p-8 text-center">
+          <div class="h-12 w-12 text-indigo-600 mx-auto mb-4">
+            💳 <!-- Replace with SVG or external icon -->
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Online Giving</h3>
+          <p class="text-gray-600 mb-4">
+            Give securely online using your credit card or bank account.
+          </p>
+          <button class="bg-indigo-600 text-white px-6 py-2 rounded-md hover:bg-indigo-700">
+            Give Now
+          </button>
+        </div>
+
+        <!-- Recurring Giving -->
+        <div class="bg-gray-50 rounded-lg p-8 text-center">
+          <div class="h-12 w-12 text-indigo-600 mx-auto mb-4">
+            🔄 <!-- Replace with SVG or external icon -->
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Recurring Giving</h3>
+          <p class="text-gray-600 mb-4">
+            Set up automatic recurring donations on a schedule that works for you.
+          </p>
+          <button class="bg-indigo-600 text-white px-6 py-2 rounded-md hover:bg-indigo-700">
+            Set Up Recurring
+          </button>
+        </div>
+
+        <!-- Text to Give -->
+        <div class="bg-gray-50 rounded-lg p-8 text-center">
+          <div class="h-12 w-12 text-indigo-600 mx-auto mb-4">
+            📅 <!-- Replace with SVG or external icon -->
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Text to Give</h3>
+          <p class="text-gray-600 mb-4">
+            Text any amount to our giving number for quick and easy giving.
+          </p>
+          <p class="font-semibold">Text GIVE to (555) 123-4567</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why We Give -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl font-bold mb-6">Why We Give</h2>
+          <p class="text-gray-600 mb-4">
+            Giving is an act of worship and a response to God's generosity. Your faithful giving supports:
+          </p>
+          <ul class="space-y-4">
+            <li class="flex items-start">
+              <span class="h-6 w-6 text-indigo-600 mr-2">❤️</span>
+              <span class="text-gray-600">Local and global missions</span>
+            </li>
+            <li class="flex items-start">
+              <span class="h-6 w-6 text-indigo-600 mr-2">❤️</span>
+              <span class="text-gray-600">Youth and children's programs</span>
+            </li>
+            <li class="flex items-start">
+              <span class="h-6 w-6 text-indigo-600 mr-2">❤️</span>
+              <span class="text-gray-600">Community outreach initiatives</span>
+            </li>
+            <li class="flex items-start">
+              <span class="h-6 w-6 text-indigo-600 mr-2">❤️</span>
+              <span class="text-gray-600">Church operations and maintenance</span>
+            </li>
+          </ul>
+        </div>
+        <div class="relative h-96">
+          <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+            alt="Community Impact" class="w-full h-full object-cover rounded-lg shadow-lg" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <div class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="max-w-2xl mx-auto">
+            <h1 class="text-4xl font-bold text-center mb-8">Give</h1>
+            <p class="text-center text-gray-600 mb-12">Support our ministry and make a difference in our community</p>
+            
+            <div class="bg-white rounded-lg shadow-md p-8">
+                <form method="post" class="space-y-6">
+                    {% csrf_token %}
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Amount</label>
+                        <div class="mt-1">
+                            <input type="number" name="amount" step="0.01" required
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Purpose</label>
+                        <select name="purpose" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 rounded-md">
+                            <option value="tithe">Tithe</option>
+                            <option value="offering">Offering</option>
+                            <option value="building_fund">Building Fund</option>
+                            <option value="missions">Missions</option>
+                        </select>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <input type="checkbox" name="recurring" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                        <label class="ml-2 block text-sm text-gray-700">Make this a recurring monthly donation</label>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                        Give Now
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+  <!-- Giving Options -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="grid md:grid-cols-2 gap-12">
+            <!-- Online Giving Form -->
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-2xl font-bold mb-6">Give Online</h2>
+                <form class="space-y-6">
+                    <div>
+                        <label class="block text-gray-700 mb-2" for="amount">Amount</label>
+                        <div class="flex space-x-4 mb-4">
+                            <button type="button" class="px-4 py-2 border rounded-lg hover:bg-church-gold hover:text-white">$50</button>
+                            <button type="button" class="px-4 py-2 border rounded-lg hover:bg-church-gold hover:text-white">$100</button>
+                            <button type="button" class="px-4 py-2 border rounded-lg hover:bg-church-gold hover:text-white">$200</button>
+                            <button type="button" class="px-4 py-2 border rounded-lg hover:bg-church-gold hover:text-white">Custom</button>
+                        </div>
+                        <input type="number" id="amount" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-church-gold" placeholder="Enter amount">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2" for="fund">Select Fund</label>
+                        <select id="fund" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-church-gold">
+                            <option>General Fund</option>
+                            <option>Building Fund</option>
+                            <option>Missions Fund</option>
+                            <option>Youth Ministry</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2" for="frequency">Frequency</label>
+                        <select id="frequency" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-church-gold">
+                            <option>One Time</option>
+                            <option>Weekly</option>
+                            <option>Monthly</option>
+                            <option>Quarterly</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-primary w-full">Give Now</button>
+                </form>
+            </div>
+
+            <!-- Other Giving Info -->
+            <div class="space-y-8">
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <h2 class="text-2xl font-bold mb-4">Other Ways to Give</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <h3 class="font-semibold mb-2">Mail a Check</h3>
+                            <p>Make checks payable to:<br>
+                            Grace Community Church<br>
+                            123 Faith Street<br>
+                            Your City, ST 12345</p>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold mb-2">Text to Give</h3>
+                            <p>Text GIVE to (555) 123-4567</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <h2 class="text-2xl font-bold mb-4">Why We Give</h2>
+                    <p class="mb-4">Your generosity helps us continue our mission of spreading God's love through various ministries and community outreach programs.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>Support local missions</li>
+                        <li>Fund youth programs</li>
+                        <li>Maintain church facilities</li>
+                        <li>Help those in need</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Impact Section -->
+<section class="py-20 bg-gray-100">
+    <div class="max-w-7xl mx-auto px-4">
+        <h2 class="section-title">Your Giving Makes a Difference</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                <div class="text-4xl font-bold text-church-gold mb-2">1,000+</div>
+                <p>Families Helped</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                <div class="text-4xl font-bold text-church-gold mb-2">50+</div>
+                <p>Mission Trips</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                <div class="text-4xl font-bold text-church-gold mb-2">100%</div>
+                <p>To Ministry</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

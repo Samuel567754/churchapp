@@ -1,0 +1,64 @@
+{% load static %}
+<nav class="bg-white shadow-lg fixed top-0  w-full z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-20">
+      <div class="flex">
+        <a href="/" class="flex items-center">
+          <svg class="h-8 w-8 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2L2 7l10 5 10-5-10-5z" />
+          </svg>
+          <span class="ml-2 text-2xl font-bold text-gray-900">Grace Community</span>
+        </a>
+      </div>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="/" class="text-gray-700 hover:text-indigo-600 px-3 py-2 font-medium">Home</a>
+        <a href="/about" class="text-gray-700 hover:text-indigo-600 px-3 py-2 font-medium">About</a>
+        <a href="/services" class="text-gray-700 hover:text-indigo-600 px-3 py-2 font-medium">Services</a>
+        <a href="/events" class="text-gray-700 hover:text-indigo-600 px-3 py-2 font-medium">Events</a>
+        <a href="/ministries" class="text-gray-700 hover:text-indigo-600 px-3 py-2 font-medium">Ministries</a>
+        <a href="/give" class="text-gray-700 hover:text-indigo-600 px-3 py-2 font-medium">Give</a>
+        <a href="{% url 'blog:blog' %}" class="text-gray-700 hover:text-indigo-600 px-3 py-2 font-medium">Blog</a>
+        <a href="{% url 'sermons' %}" class="text-gray-700 hover:text-indigo-600 px-3 py-2 font-medium">Sermons</a>
+        <a href="/contact" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700">Contact</a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden flex items-center">
+        <button id="menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-indigo-600 focus:outline-none">
+          <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" id="menu-icon">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden px-2 pt-2 pb-3 space-y-1 sm:px-3">
+    <a href="{% url 'home' %}" class="block px-3 py-2 text-gray-700 hover:text-indigo-600">Home</a>
+    <a href="{% url 'about' %}" class="block px-3 py-2 text-gray-700 hover:text-indigo-600">About</a>
+    <a href="{% url 'services' %}" class="block px-3 py-2 text-gray-700 hover:text-indigo-600">Services</a>
+    <a href="{% url 'events' %}" class="block px-3 py-2 text-gray-700 hover:text-indigo-600">Events</a>
+    <a href="{% url 'ministries' %}" class="block px-3 py-2 text-gray-700 hover:text-indigo-600">Ministries</a>
+    <a href="{% url 'blog:blog' %}" class="block px-3 py-2 text-gray-700 hover:text-indigo-600">Blog</a>
+    <a href="{% url 'sermons' %}" class="block px-3 py-2 text-gray-700 hover:text-indigo-600">Sermons</a>
+    <a href="{% url 'give' %}" class="block px-3 py-2 text-gray-700 hover:text-indigo-600">Give</a>
+    <a href="{% url 'contact' %}" class="block px-3 py-2 bg-indigo-600 text-white rounded-md">Contact</a>
+  </div>
+</nav>
+
+<script>
+  const menuButton = document.getElementById('menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  menuButton.addEventListener('click', () => {
+    const isHidden = mobileMenu.classList.contains('hidden');
+    mobileMenu.classList.toggle('hidden', !isHidden);
+  });
+</script>
+
+
+
+

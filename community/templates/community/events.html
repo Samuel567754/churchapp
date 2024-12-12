@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+
+{% block title %}Events page - Church{% endblock %}
+
+{% block content %} 
+
+<!-- Page Header -->
+<section class="relative bg-cover bg-center h-72" style="background-image: url('https://images.unsplash.com/photo-1513151233558-d860c5398176?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+    <div class="relative z-10 flex flex-col items-center justify-center h-full text-white">
+      <h1 class="text-4xl font-bold">Events</h1>
+      <p class="text-xl mt-2">Join Us for Special Events and Activities</p>
+    </div>
+</section>
+
+
+<!-- Upcoming Events Section -->
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold mb-4">Upcoming Events</h2>
+      <p class="text-xl text-gray-600">Mark your calendar and join us for these special occasions</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Event Card 1 -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1544427920-c49ccfb85579?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Easter Sunday Celebration" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-semibold mb-2">Easter Sunday Celebration</h3>
+          <div class="space-y-2 mb-4">
+            <div class="flex items-center text-gray-600">
+              <svg class="h-5 w-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 4h10M5 21h14M6 10h12M9 16h6" />
+              </svg>
+              April 9, 2024
+            </div>
+            <div class="flex items-center text-gray-600">
+              <svg class="h-5 w-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16h8m-4 4V4" />
+              </svg>
+              9:00 AM & 11:00 AM
+            </div>
+            <div class="flex items-center text-gray-600">
+              <svg class="h-5 w-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10l9-7 9 7-9 7-9-7zm9-7v14" />
+              </svg>
+              Main Sanctuary
+            </div>
+          </div>
+          <p class="text-gray-600">Join us for a special Easter celebration with worship, message, and children's activities.</p>
+        </div>
+      </div>
+
+      <!-- Event Card 2 -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1596496050827-8299e0220de1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Youth Summer Camp" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-semibold mb-2">Youth Summer Camp</h3>
+          <div class="space-y-2 mb-4">
+            <div class="flex items-center text-gray-600">
+              <svg class="h-5 w-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 4h10M5 21h14M6 10h12M9 16h6" />
+              </svg>
+              July 15-19, 2024
+            </div>
+            <div class="flex items-center text-gray-600">
+              <svg class="h-5 w-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16h8m-4 4V4" />
+              </svg>
+              All Day
+            </div>
+            <div class="flex items-center text-gray-600">
+              <svg class="h-5 w-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10l9-7 9 7-9 7-9-7zm9-7v14" />
+              </svg>
+              Camp Pine Valley
+            </div>
+          </div>
+          <p class="text-gray-600">A week of fun, fellowship, and spiritual growth for students grades 6-12.</p>
+        </div>
+      </div>
+
+      <!-- Add more event cards as needed -->
+    </div>
+  </div>
+</section>
+
+<!-- Calendar Section -->
+<section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-gray-800">Church Calendar</h2>
+        <p class="text-lg text-gray-600 mt-2">Stay informed about all upcoming events, services, and activities at our church.</p>
+      </div>
+  
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+        <iframe 
+          src="https://calendar.google.com/calendar/embed?src=YOUR_CALENDAR_ID&ctz=YOUR_TIMEZONE" 
+          class="w-full h-[600px] border-0"
+          style="border: none;">
+        </iframe>
+        <div class="p-6 bg-gray-100 text-center">
+          <p class="text-gray-500">Can't see the calendar? <a href="YOUR_CALENDAR_LINK" class="text-indigo-600 underline">Click here</a> to open it in a new tab.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+
+
+
+  <!-- Featured Events -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4">
+        <h2 class="section-title">Featured Events</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18" alt="Easter Service" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold mb-2">Easter Sunday Service</h3>
+                    <p class="text-gray-600 mb-4">April 9, 2024 | 9:00 AM & 11:00 AM</p>
+                    <p class="mb-4">Join us for a special Easter celebration with worship, fellowship, and activities for children.</p>
+                    <a href="#" class="btn-primary">Learn More</a>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1" alt="Summer Camp" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold mb-2">Summer Youth Camp</h3>
+                    <p class="text-gray-600 mb-4">July 15-20, 2024</p>
+                    <p class="mb-4">A week-long adventure for youth ages 12-18 filled with fun activities, worship, and spiritual growth.</p>
+                    <a href="#" class="btn-primary">Register Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Monthly Calendar -->
+<section class="py-20 bg-gray-100">
+    <div class="max-w-7xl mx-auto px-4">
+        <h2 class="section-title">Monthly Events</h2>
+        <div class="space-y-6">
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-xl font-semibold">Community Prayer Breakfast</h3>
+                    <span class="text-church-gold">Every First Saturday | 8:00 AM</span>
+                </div>
+                <p>Start your month with prayer and fellowship over breakfast.</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-xl font-semibold">Women's Bible Study</h3>
+                    <span class="text-church-gold">Every Tuesday | 10:00 AM</span>
+                </div>
+                <p>Join our women's ministry for weekly Bible study and fellowship.</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-xl font-semibold">Men's Fellowship</h3>
+                    <span class="text-church-gold">Every Thursday | 6:30 PM</span>
+                </div>
+                <p>Men gathering for Bible study, prayer, and brotherhood.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

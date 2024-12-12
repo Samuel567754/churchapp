@@ -1,0 +1,450 @@
+{% extends 'base.html' %}
+
+{% block title %}home page - Bookstore{% endblock %}
+
+{% block content %} 
+
+{% comment %} {% include 'partials/_herosec.html' %}  {% endcomment %}
+<div id="default-carousel" class="relative w-full" data-carousel="slide">
+    <!-- Carousel wrapper -->
+    <div class="relative h-96 overflow-hidden rounded-lg md:h-96">
+        {% for item in carousel_items %}
+        <div class="hidden duration-700 ease-in-out inset-0 absolute z-0" data-carousel-item>
+            <!-- Overlay text container -->
+            <div class="text-center relative z-30 flex flex-col items-center justify-center h-full">
+                {% if item.title %}
+                <h2 class="mb-4 text-3xl lg:text-4xl text-white font-bold leading-tight">{{ item.title }}</h2>
+                {% endif %}
+                {% if item.description %}
+                <p class="text-lg text-white mx-auto">{{ item.description }}</p>
+                {% endif %}
+                {% if item.link %}
+                <a href="{{ item.link }}" class="mt-4 px-6 py-3 bg-blue-500 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1 flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                    </svg>
+                    Explore Now
+                </a>
+                {% endif %}
+            </div>
+            <!-- Dark overlay layer -->
+            <div class="inset-0 bg-black opacity-50 absolute z-10"></div>
+            <!-- Background image layer -->
+            <div class="inset-0 absolute z-0">
+                {% if item.image %}
+                <img src="{{ item.image.url }}" class="block w-full h-full object-fill object-center" alt="{{ item.title }}">
+                {% elif item.image_url %}
+                <img src="{{ item.image_url }}" class="block w-full h-full object-fill object-center" alt="{{ item.title }}">
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <!-- Slider indicators -->
+    <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
+        {% for item in carousel_items %}
+        <button type="button" class="w-3 h-3 rounded-full" aria-current="{% if forloop.first %}true{% else %}false{% endif %}" aria-label="Slide {{ forloop.counter }}" data-carousel-slide-to="{{ forloop.counter0 }}"></button>
+        {% endfor %}
+    </div>
+    <!-- Slider controls -->
+    <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+            <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
+            </svg>
+            <span class="sr-only">Previous</span>
+        </span>
+    </button>
+    <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+            <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+            </svg>
+            <span class="sr-only">Next</span>
+        </span>
+    </button>
+</div>
+
+
+ {% comment %} <!-- Hero Section -->
+ <div 
+ class="h-screen relative flex items-center justify-center"
+ style="background-image: url('https://images.unsplash.com/photo-1438032005730-c779502df39b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center;"
+>
+ <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+ <div class="relative text-center text-white px-4">
+   <h1 class="text-5xl md:text-6xl font-bold mb-6">Welcome to Grace Community</h1>
+   <p class="text-xl md:text-2xl mb-8">Experience God's Love in a Community of Faith</p>
+   <div class="space-x-4">
+     <a href="/about" class="bg-indigo-600 text-white px-8 py-3 rounded-md hover:bg-indigo-700 inline-flex items-center">
+       Learn More <span class="ml-2 h-5 w-5">&rarr;</span>
+     </a>
+     <a href="/services" class="bg-white text-gray-900 px-8 py-3 rounded-md hover:bg-gray-100">Join Us</a>
+   </div>
+ </div>
+</div>
+
+<!-- Service Times -->
+<div class="bg-indigo-600 text-white py-12">
+ <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+   <div class="text-center">
+     <h2 class="text-3xl font-bold mb-8">Service Times</h2>
+     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+       <div class="bg-indigo-700 p-6 rounded-lg">
+         <h3 class="text-xl font-semibold mb-2">Sunday Services</h3>
+         <p>9:00 AM & 11:00 AM</p>
+       </div>
+       <div class="bg-indigo-700 p-6 rounded-lg">
+         <h3 class="text-xl font-semibold mb-2">Wednesday Night</h3>
+         <p>7:00 PM</p>
+       </div>
+       <div class="bg-indigo-700 p-6 rounded-lg">
+         <h3 class="text-xl font-semibold mb-2">Youth Service</h3>
+         <p>Friday 6:30 PM</p>
+       </div>
+     </div>
+   </div>
+ </div>
+</div> {% endcomment %}
+
+<!-- Featured Sections -->
+<div class="py-16 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+      <!-- Section 1: Upcoming Events -->
+      <div class="text-center bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+        <div class="flex items-center justify-center h-16 w-16 mx-auto mb-6 bg-indigo-100 text-indigo-600 rounded-full text-2xl">
+          📅
+        </div>
+        <h3 class="text-2xl font-bold text-gray-800 mb-4">Upcoming Events</h3>
+        <p class="text-gray-600 mb-6">Join us for special services and community events.</p>
+        <a href="/events" class="text-indigo-600 font-semibold hover:text-indigo-700 transition-colors duration-200">
+          View Calendar →
+        </a>
+      </div>
+
+      <!-- Section 2: Get Connected -->
+      <div class="text-center bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+        <div class="flex items-center justify-center h-16 w-16 mx-auto mb-6 bg-green-100 text-green-600 rounded-full text-2xl">
+          👥
+        </div>
+        <h3 class="text-2xl font-bold text-gray-800 mb-4">Get Connected</h3>
+        <p class="text-gray-600 mb-6">Find your place in our church community.</p>
+        <a href="/ministries" class="text-green-600 font-semibold hover:text-green-700 transition-colors duration-200">
+          Join a Ministry →
+        </a>
+      </div>
+
+      <!-- Section 3: Give -->
+      <div class="text-center bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+        <div class="flex items-center justify-center h-16 w-16 mx-auto mb-6 bg-red-100 text-red-600 rounded-full text-2xl">
+          ❤️
+        </div>
+        <h3 class="text-2xl font-bold text-gray-800 mb-4">Give</h3>
+        <p class="text-gray-600 mb-6">Support our mission and ministry.</p>
+        <a href="/give" class="text-red-600 font-semibold hover:text-red-700 transition-colors duration-200">
+          Learn More →
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+ <!-- Announcements Hero -->
+ <div class="pt-20">
+  <div class="bg-teal-500 text-white py-20 flex justify-center items-center">
+      <div class="max-w-7xl mx-auto px-4">
+          <h1 class="text-5xl font-bold mb-4">Church Announcements</h1>
+          <p class="text-xl">Stay updated with the latest news and events</p>
+      </div>
+  </div>
+</div>
+
+<!-- Featured Announcement -->
+<section class="py-20">
+  <div class="max-w-7xl mx-auto px-4">
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+          <div class="md:flex">
+              <div class="md:w-2/3 p-8">
+                  <div class="text-church-gold mb-2">Important Update</div>
+                  <h2 class="text-3xl font-bold mb-4">Easter Service Schedule</h2>
+                  <p class="mb-4">Join us for our special Easter services on April 9th. We will have three services to accommodate everyone:</p>
+                  <ul class="list-disc list-inside mb-6">
+                      <li>Sunrise Service: 6:30 AM</li>
+                      <li>Morning Service: 9:00 AM</li>
+                      <li>Family Service: 11:00 AM</li>
+                  </ul>
+                  <a href="#" class="btn-primary">Learn More</a>
+              </div>
+              <div class="md:w-1/3">
+                  <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18" alt="Easter Service" class="w-full h-full object-cover">
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<!-- Recent Announcements -->
+<section class="py-20 bg-gray-100">
+  <div class="max-w-7xl mx-auto px-4">
+      <h2 class="section-title">Recent Announcements</h2>
+      <div class="space-y-8">
+          <!-- Announcement 1 -->
+          <div class="bg-white rounded-lg shadow-lg p-6">
+              <div class="flex items-center justify-between mb-4">
+                  <div>
+                      <div class="text-church-gold mb-1">March 15, 2024</div>
+                      <h3 class="text-xl font-bold">Youth Camp Registration Open</h3>
+                  </div>
+                  <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Youth Ministry</span>
+              </div>
+              <p class="mb-4">Summer youth camp registration is now open! Early bird pricing available until April 1st.</p>
+              <a href="#" class="text-church-gold hover:text-church-brown">Read More →</a>
+          </div>
+
+          <!-- Announcement 2 -->
+          <div class="bg-white rounded-lg shadow-lg p-6">
+              <div class="flex items-center justify <div class="flex items-center justify-between mb-4">
+                  <div>
+                      <div class="text-church-gold mb-1">March 12, 2024</div>
+                      <h3 class="text-xl font-bold">Community Outreach Day</h3>
+                  </div>
+                  <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Missions</span>
+              </div>
+              <p class="mb-4">Join us for our monthly community outreach day. We'll be serving at the local food bank.</p>
+              <a href="#" class="text-church-gold hover:text-church-brown">Read More →</a>
+          </div>
+
+          <!-- Announcement 3 -->
+          <div class="bg-white rounded-lg shadow-lg p-6">
+              <div class="flex items-center justify-between mb-4">
+                  <div>
+                      <div class="text-church-gold mb-1">March 10, 2024</div>
+                      <h3 class="text-xl font-bold">New Small Group Starting</h3>
+                  </div>
+                  <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Small Groups</span>
+              </div>
+              <p class="mb-4">A new small group focused on young families will be starting next month. Sign up today!</p>
+              <a href="#" class="text-church-gold hover:text-church-brown">Read More →</a>
+          </div>
+      </div>
+  </div>
+</section>
+
+<!-- Categories -->
+<section class="py-20">
+  <div class="max-w-7xl mx-auto px-4">
+      <h2 class="section-title">Browse by Category</h2>
+      <div class="grid md:grid-cols-4 gap-6">
+          <a href="#" class="bg-white p-6 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow">
+              <h3 class="text-xl font-semibold mb-2">Events</h3>
+              <p class="text-gray-600">Upcoming church events</p>
+          </a>
+          <a href="#" class="bg-white p-6 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow">
+              <h3 class="text-xl font-semibold mb-2">Ministry Updates</h3>
+              <p class="text-gray-600">Latest from our ministries</p>
+          </a>
+          <a href="#" class="bg-white p-6 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow">
+              <h3 class="text-xl font-semibold mb-2">Service Changes</h3>
+              <p class="text-gray-600">Updates to service times</p>
+          </a>
+          <a href="#" class="bg-white p-6 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow">
+              <h3 class="text-xl font-semibold mb-2">Volunteer Needs</h3>
+              <p class="text-gray-600">Ways to serve</p>
+          </a>
+      </div>
+  </div>
+</section>
+
+<!-- Subscribe Section -->
+<section class="py-20 bg-church-brown text-white">
+  <div class="max-w-7xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-6">Stay Updated</h2>
+      <p class="mb-8">Subscribe to our weekly announcement email to stay informed about church news and events.</p>
+      <form class="max-w-md mx-auto">
+          <div class="flex">
+              <input type="email" placeholder="Enter your email" class="flex-1 px-4 py-2 rounded-l-lg focus:outline-none text-gray-900">
+              <button type="submit" class="bg-church-gold px-6 py-2 rounded-r-lg hover:bg-opacity-90">Subscribe</button>
+          </div>
+      </form>
+  </div>
+</section>
+
+
+
+
+
+<!-- Latest Sermon -->
+<section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-gray-800">Latest Message</h2>
+        <p class="text-lg text-gray-600 mt-2">Experience our most recent Sunday service and be inspired.</p>
+      </div>
+      
+      <div class="relative bg-white rounded-lg shadow-lg overflow-hidden">
+        <iframe 
+          src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
+          class="w-full h-[500px] border-0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+        <div class="p-6 bg-gray-100 text-center">
+          <p class="text-gray-500">Having trouble viewing the video? <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID" class="text-indigo-600 underline">Watch on YouTube</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+
+
+
+ <!-- Welcome Section -->
+ <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4">
+        <h2 class="section-title">Welcome to Our Church</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="text-center">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold mb-4">New Here?</h3>
+                    <p class="mb-4">We'd love to welcome you to our community. Learn what to expect on your first visit.</p>
+                    <a href="{% url 'about' %}" class="text-church-gold hover:text-church-brown">Learn More →</a>
+                </div>
+            </div>
+            <div class="text-center">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold mb-4">Service Times</h3>
+                    <p class="mb-4">Sunday Services: 9:00 AM & 11:00 AM<br>Wednesday Bible Study: 7:00 PM</p>
+                    <a href="{% url 'services' %}" class="text-church-gold hover:text-church-brown">View Schedule →</a>
+                </div>
+            </div>
+            <div class="text-center">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold mb-4">Get Involved</h3>
+                    <p class="mb-4">Discover our ministries and find ways to serve in our community.</p>
+                    <a href="{% url 'ministries' %}" class="text-church-gold hover:text-church-brown">Join Ministry →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container mx-auto px-10 py-6">
+
+  <section class="bg-zinc-50 overflow-hidden">
+    <div class="max-w-screen-xl 2xl:max-w-screen-3xl px-8 md:px-12 mx-auto py-12 lg:py-24 space-y-24 h-svh flex flex-col justify-center">
+     <div class="flex flex-col sm:flex-row mx-auto">
+      <!--- Starts component --> <a href="#_"> <img src="https://images.unsplash.com/photo-1530035415911-95194de4ebcc?q=80&amp;w=2670&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="rounded-xl  rotate-6 hover:rotate-0 duration-500 hover:-translate-y-12 h-full w-full object-cover hover:scale-150 transform origin-bottom" alt="#_"> </a><a href="#_"> <img src="https://images.unsplash.com/photo-1487180144351-b8472da7d491?q=80&amp;w=2672&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D " class="rounded-xl  -rotate-12 hover:rotate-0 duration-500 hover:-translate-y-12 h-full w-full object-cover hover:scale-150 transform origin-bottom" alt="#_"> </a><a href="#_"> <img src="https://images.unsplash.com/photo-1586996292898-71f4036c4e07?q=80&amp;w=2670&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="rounded-xl  rotate-6 hover:rotate-0 duration-500 hover:-translate-y-12 h-full w-full object-cover hover:scale-150 transform origin-bottom" alt="#_"> </a><a href="#_"> <img src="https://images.unsplash.com/photo-1522775417749-29284fb89f43?q=80&amp;w=2574&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="rounded-xl  -rotate-12 hover:rotate-0 duration-500 hover:-translate-y-12 h-full w-full object-cover hover:scale-150 transform origin-bottom" alt="#_"> </a>
+      <!--- Ends component -->
+    </div>
+   </section>
+</div>
+
+
+<section class="bg-zinc-50 overflow-hidden">
+  <div class="max-w-screen-xl 2xl:max-w-screen-3xl px-8 md:px-12 mx-auto py-12 lg:py-24 space-y-12">
+    <!-- Gallery Header -->
+    <div class="text-center space-y-4">
+      <h1 class="text-3xl lg:text-5xl font-bold text-gray-800">Our Beautiful Gallery</h1>
+      <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+        Explore our curated collection of stunning images. Each piece tells a unique story, captured through the lens of creativity and inspiration.
+      </p>
+    </div>
+
+    <!-- Gallery Images -->
+    <div id="gallery-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {% for image in gallery_images %}
+      <div class="gallery-item relative group overflow-hidden rounded-xl shadow-lg">
+        <img src="{{ image.image.url }}" 
+         alt="{{ image.title }}" 
+         class="h-72 w-full object-cover transform group-hover:scale-110 transition duration-500" 
+         loading="lazy">
+        <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-center items-center">
+          <h2 class="text-white text-lg font-semibold">{{ image.title }}</h2>
+          <p class="text-white text-sm mt-2">{{ image.description }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <style>
+      /* Button hover scaling effect */
+      button:hover {
+        transform: scale(1.05);
+      }
+
+      /* Spinner animation */
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+</style>
+      
+    
+
+    <!-- Load More Button -->
+    {% if has_next %}
+    <div class="flex justify-center items-center">
+    <div class="text-center mt-8">
+      <button id="load-more-btn" 
+              data-next-page="{{ next_page_number }}" 
+              class="px-6 py-3 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 hover:scale-105 transition-transform duration-300 flex items-center justify-center space-x-2">
+        <span id="button-text">Load More</span>
+        <svg id="loading-spinner" class="hidden w-5 h-5 text-white animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+        </svg>
+      </button>
+    </div>
+    </div>
+    {% endif %}
+
+  </div>
+</section>
+
+
+
+<script>
+  document.getElementById("load-more-btn")?.addEventListener("click", function () {
+    const nextPage = this.getAttribute("data-next-page");
+    const button = this;
+    const buttonText = document.getElementById("button-text");
+    const spinner = document.getElementById("loading-spinner");
+  
+    // Show spinner and disable button
+    buttonText.classList.add("hidden");
+    spinner.classList.remove("hidden");
+    button.disabled = true;
+  
+    fetch(`?page=${nextPage}`)
+      .then((response) => response.text())
+      .then((html) => {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, "text/html");
+        const newImages = doc.querySelector("#gallery-container").innerHTML;
+        const newButton = doc.querySelector("#load-more-btn");
+  
+        // Append new images to the gallery
+        document.getElementById("gallery-container").insertAdjacentHTML("beforeend", newImages);
+  
+        // Update or remove the Load More button
+        if (newButton) {
+          button.setAttribute("data-next-page", newButton.getAttribute("data-next-page"));
+        } else {
+          button.remove();
+        }
+      })
+      .catch((error) => console.error("Error loading more images:", error))
+      .finally(() => {
+        // Restore button state
+        buttonText.classList.remove("hidden");
+        spinner.classList.add("hidden");
+        button.disabled = false;
+      });
+  });
+  
+</script>
+
+{% endblock %}

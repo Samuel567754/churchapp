@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+
+{% block title %}Sermons - My Website{% endblock %}
+
+{% block content %}
+
+ <!-- Page Header -->
+ <div class="relative">
+    <img 
+      src="https://images.unsplash.com/photo-1560361635-9d6b6befc49b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8c2VybW9uc3xlbnwwfHwwfHx8MA%3D%3D" 
+      alt="Worship and Fellowship" 
+      class="w-full h-96 object-cover" 
+    />
+    <div class="absolute top-0 left-0 right-0 bottom-0 bg-black opacity-50"></div>
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white">
+      <h1 class="text-4xl font-bold">Our Sermons</h1>
+      <p class="text-xl mt-4">Listen to our sermon recordings</p>
+    </div>
+  </div>
+
+<div class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <h1 class="text-4xl font-bold text-center mb-12">Sermons</h1>
+
+        <!-- Sermon Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Sermon Card -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <!-- Video Embed -->
+                <div class="aspect-w-16 aspect-h-9">
+                    <iframe 
+                        src="https://example.com/video-url" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <!-- Sermon Details -->
+                <div class="p-6">
+                    <h2 class="text-xl font-semibold mb-2">Sermon Title</h2>
+                    <p class="text-gray-600 mb-4">Preacher Name</p>
+                    <div class="text-sm text-gray-500">October 10, 2024</div>
+                    <!-- Audio Player -->
+                    <audio controls class="w-full mt-4">
+                        <source src="https://example.com/audio-file.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+            </div>
+            <!-- Repeat the above card as needed -->
+        </div>
+    </div>
+</div>
+
+
+
+
+  <!-- Featured Sermon -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4">
+         <!-- Section Title -->
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-extrabold text-gray-800 mb-4">Latest Sermon</h2>
+        <p class="text-lg text-gray-600">Listen to our latest sermon</p>
+    </div>
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div class="md:flex">
+                <div class="md:w-2/3 p-8">
+                    <h3 class="text-2xl font-bold mb-4">Walking in Faith</h3>
+                    <p class="text-gray-600 mb-4">Pastor John Smith | March 17, 2024</p>
+                    <p class="mb-6">Exploring how to strengthen our faith through daily challenges and victories.</p>
+                    <div class="space-y-4">
+                        <audio controls class="w-full">
+                            <source src="#" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="flex space-x-4">
+                            <a href="#" class="btn-primary">Download Audio</a>
+                            <a href="#" class="btn-primary">Watch Video</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/3">
+                    <img src="https://images.unsplash.com/photo-1438032005730-c779502df39b" alt="Sermon" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sermon Archive -->
+<section class="py-20 bg-gray-100">
+    <div class="max-w-7xl mx-auto px-4">
+
+         <!-- Section Title -->
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-extrabold text-gray-800 mb-4">Sermon Archive</h2>
+        <p class="text-lg text-gray-600">Listen to our sermon archive</p>
+    </div>
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Sermon 1 -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754" alt="Sermon" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">The Power of Prayer</h3>
+                    <p class="text-gray-600 mb-4">March 10, 2024 | Pastor John Smith</p>
+                    <audio controls class="w-full mb-4">
+                        <source src="#" type="audio/mpeg">
+                    </audio>
+                    <a href="#" class="text-church-gold hover:text-church-brown">Download →</a>
+                </div>
+            </div>
+
+            <!-- Sermon 2 -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754" alt="Sermon" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Living with Purpose</h3>
+                    <p class="text-gray-600 mb-4">March 3, 2024 | Pastor Sarah Johnson</p>
+                    <audio controls class="w-full mb-4">
+                        <source src="#" type="audio/mpeg">
+                    </audio>
+                    <a href="#" class="text-church-gold hover:text-church-brown">Download →</a>
+                </div>
+            </div>
+
+            <!-- Sermon 3 -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754" alt="Sermon" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Grace in Action</h3>
+                    <p class="text-gray-600 mb-4">February 25, 2024 | Pastor Michael Davis</p>
+                    <audio controls class="w-full mb-4">
+                        <source src="#" type="audio/mpeg">
+                    </audio>
+                    <a href="#" class="text-church-gold hover:text-church-brown">Download →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+    
+
+
+
+
+
